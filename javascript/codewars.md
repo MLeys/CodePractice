@@ -63,5 +63,25 @@ function high(x){
   return highWord;
 }
 ```
+***
+### Mexican Wave - Iterate through string and return each letter capitalized in sequence.
 
+```javascript
+function wave(str){
+  let waveStr = [];
+  if (str) {
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] !== ' ') {
+//         const newStr = str.replace(str[i], str[i].toUpperCase()) 
+        // this does not work because it is not updating the original string?
+        const newStr = str.substring(0, i) + str[i].toUpperCase() + str.substring(i + 1);
 
+        waveStr.push(newStr)
+      }
+    }
+  }
+
+  console.log(waveStr)
+  return waveStr
+}
+```
