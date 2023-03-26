@@ -9,9 +9,9 @@
 ```javascript
 
   function isPalindrome(x) {
-  const lowerCaseX = x.toLowerCase();
-  const backwardsX = lowerCaseX.split('').reverse().join('');
-  return lowerCaseX === backwardsX
+    const lowerCaseX = x.toLowerCase();
+    const backwardsX = lowerCaseX.split('').reverse().join('');
+    return lowerCaseX === backwardsX
 }
 ```
 
