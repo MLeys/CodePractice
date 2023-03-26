@@ -85,3 +85,18 @@ function wave(str){
   return waveStr
 }
 ```
+***
+
+### Check if ending of string matches a param
+
+```javascript
+function solution(str, ending){
+  if (str && ending) {
+    const endLength = ending.length
+    const newStr = str.slice(-endLength);
+    return (newStr === ending ? true : false);
+  }
+  return true
+}
+```
+***
