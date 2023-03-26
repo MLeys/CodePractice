@@ -98,5 +98,23 @@ function solution(str, ending){
   }
   return true
 }
+
+// BETTER ANSWER
+function solution(str, ending){
+  return str.endsWith(ending);
+}
+```
+***
+
+### sum of all numbers in array
+
+```javascript
+function sum (numbers) {
+  if (numbers) {
+    const sum = numbers.reduce((acc, cV) => acc + cV, 0);
+    return sum;
+  }
+  return 0;  
+};
 ```
 ***
