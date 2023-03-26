@@ -118,3 +118,46 @@ function sum (numbers) {
 };
 ```
 ***
+
+### Check if even number
+
+```javascript
+function testEven(n) {
+    return n%2===0;
+}
+```
+***
+
+### Triple Fibonaci sequence
+
+```javascript
+function tribonacci(signature,n){
+  let sequence = [];
+  let first = signature[0];
+  let second = signature[1];
+  let third = signature[2];
+  
+  switch (n) {
+    case 0:
+      return sequence;
+    case 1:
+      return [first];
+    case 2:
+      return [first, second];
+    case 3:
+      return [first, second, third];
+    default:
+      sequence = [ first, second, third ]
+
+      for (let i = 0; i < n-3; i++) {
+        sequence.push(first + second + third)
+        first = sequence[i + 1];
+        second = sequence[i + 2];
+        third = sequence[i + 3];
+
+      }
+      return sequence;
+  }
+}
+```
+***
