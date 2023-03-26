@@ -13,7 +13,9 @@
   const backwardsX = lowerCaseX.split('').reverse().join('');
   return lowerCaseX === backwardsX
 }
-}```
+}
+```
+
 ***
 
 
