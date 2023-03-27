@@ -169,3 +169,95 @@ function tribonacci(signature,n){
 }
 ```
 ***
+
+### Remove every other element in array
+```javascript
+function removeEveryOther(arr){
+  let newArray = [arr[0]]
+  for (let i = 1; i < arr.length; i++) {
+    (i % 2 === 0) ? newArray.push(arr[i] ) : ''
+  }
+  return newArray;
+}
+
+//BETTER WAY - use filter
+function removeEveryOther(arr){
+  return arr.filter(function(elem, index) {
+    return index % 2 === 0;
+  });
+}
+```
+***
+
+### Return domain only from url using regex
+
+```javascript
+function domainName(url){
+  const findDomain = /(?:https?:\/\/)?(?:www\.)?([a-z0-9-]+)\.[a-z]+(?:\.[a-z]+)?/i;
+  const domainMatches = findDomain.exec(url);
+  
+  return domainMatches[1];
+}
+
+// BETTER WAYS
+
+//no regex
+function domainName(url){
+  url = url.replace("https://", '');
+  url = url.replace("http://", '');
+  url = url.replace("www.", '');
+  return url.split('.')[0];
+};
+
+// more simple regex
+function domainName(url){
+  return url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1];
+}
+
+```
+***
+
+### given a number, determin the response in a sequence of responses (array) #### I love you a little, a lot ...
+
+```javascript
+function howMuchILoveYou(nbPetals) {
+  switch (nbPetals % 6) {
+    case 0:
+      return "not at all"
+    case 1:
+      return 'I love you';
+    case 2:
+      return "a little";
+    case 3:
+      return "a lot";
+    case 4:
+      return "passionately";
+    case 5:
+      return "madly"
+  }
+}
+```
+***
+
+### Add space (between words) in string containing camelCase
+
+```javascript 
+function solution(string) {
+  const spaced = [];
+  for (letter of string) {
+    if (letter.toLowerCase() !== letter){
+      spaced.push(' ')
+    }
+    spaced.push(letter)
+  }
+  return spaced.join('')
+}
+
+// Regex Better way
+function solution(string) {
+  return(string.replace(/([A-Z])/g, ' $1'));
+
+}
+```
+***
+
