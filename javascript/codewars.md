@@ -261,3 +261,65 @@ function solution(string) {
 ```
 ***
 
+### count number of time a char is in string - return object
+  1. create empty obj
+  2. iterate through string
+  3. create var for current char
+  4. set the current key value
+     1. first check if already exists with 'countObj[char]' 
+     2. add to it or set as 1 if first instance
+
+```javascript
+function count(string) {
+  let countObj = {}
+  for (let i = 0; i < string.length; i++) {
+    const char  = string[i];
+    countObj[char] = countObj[char] ? countObj[char] + 1 : 1;
+  }
+  return countObj;
+}
+
+
+// BEST PRACTICE
+function count (string) {  
+  var count = {};
+  string.split('').forEach(function(s) {
+     count[s] ? count[s]++ : count[s] = 1;
+  });
+  return count;
+}
+```
+***
+
+### number of divisors for a number
+
+```javascript 
+function getDivisorsCnt(n){
+  let numDivisors = 1;
+  if ( n !== 1) {
+    for (let i = 1; i <= n/2; i++) {
+      if (n % i === 0) {
+        numDivisors++
+      }
+    }
+  }
+  return numDivisors;
+}
+```
+***
+
+### filter array  of words (strings ) by another array of strings
+
+```javascript
+function gooseFilter (birds) {
+  const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  let birdsNoGeese = birds
+  for (let i = 0; i < geese.length; i++) {
+    birdsNoGeese = birdsNoGeese.filter(bird =>  bird !== geese[i])
+  }
+  return birdsNoGeese
+};
+
+```
+***
+
