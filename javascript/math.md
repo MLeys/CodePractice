@@ -1,0 +1,75 @@
+# Math operations and notes
+
+### Calculating with functions 
+This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+
+seven(times(five())); // must return 35
+four(plus(nine())); // must return 13
+eight(minus(three())); // must return 5
+six(dividedBy(two())); // must return 3
+
+GIVEN:
+function zero() {}
+function one() {}
+...
+function add() {}
+function subtract() {}
+...
+
+1. each number takes an argument
+   1. if argument is a valid function will be true
+      1. if true call that operation
+      2. if not return its cooresponding number
+2. next operation functions run and call a number operation
+
+
+```javascript
+function zero(operation) {
+  return operation ? operation(0) : 0; 
+}
+function one(operation) {
+  return operation ? operation(1) : 1;
+}
+function two(operation) {
+  return operation ? operation(2) : 2;
+}
+function three(operation) {
+  return operation ? operation(3) : 3;
+}
+function four(operation) {
+  return operation ? operation(4) : 4;
+}
+function five(operation) {
+  return operation ? operation(5) : 5;
+}
+function six(operation) {
+  return operation ? operation(6) : 6;
+}
+function seven(operation) {
+  return operation ? operation(7) : 7;
+}
+function eight(operation) {
+  return operation ? operation(8) : 8;
+}
+function nine(operation) {
+  return operation ? operation(9) : 9;
+}
+
+function plus(num) {
+  return function(num2) {
+    return num2 + num;
+  }
+}
+function minus(num) {
+  return function(num2) {
+    return num2 - num;
+  }}
+function times(num) {
+  return function(num2) {
+    return num2 * num;
+  }}
+function dividedBy(num) {
+  return function(num2) {
+    return Math.floor(num2 / num)
+  }
+}
