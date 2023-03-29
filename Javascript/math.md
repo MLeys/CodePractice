@@ -73,3 +73,32 @@ function dividedBy(num) {
     return Math.floor(num2 / num)
   }
 }
+```
+***
+
+## Square each digit in a num and return concated num
+- For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1. (81-1-1-81)
+  
+
+```javascript
+function squareDigits(num){
+  let numString = '';
+  for (n of num.toString()) {
+    const squared = Math.pow(n, 2)
+    numString+= squared
+  }
+  return Number(numString);
+}
+
+//BETTER/ CLEANER
+function squareDigits(num){
+  return +num.toString().split('').map(i => i*i).join('');
+}
+
+// OR
+function squareDigits(num){
+  return Number(('' + num).split('').map(function (val) { return val * val;}).join(''));
+  
+}
+```
+***
