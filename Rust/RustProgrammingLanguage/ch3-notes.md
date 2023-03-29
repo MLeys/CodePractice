@@ -1,6 +1,7 @@
 
 ### Convention naming
-const variables = UPPERCASE_UNDERSCORE
+global variables = UPPERCASE_UNDERSCORE
+functions and variable names = snake_case
 
 **shadowing**
 redeclairing variable later in code
@@ -117,7 +118,110 @@ To explicitly handle the possibility of overflow, you can use these families of 
 - access elements 
   - let first = a[0]
 
-
+***
 
 ## Functions
+-Rust is expression based language
 
+**Statements**
+- instructions that perform some action and do not return a value. 
+  
+**Expressions** 
+- evaluate to a resulting value. Let’s look at some examples.
+  - do NOT have ending semicolons
+    - if so, turns into statement and will not return a value
+
+**Function return values**
+- type of return must be declared after an single line arrow, **->** , after parenthesis
+```rust 
+fn five() -> i32 {
+    5
+}
+```
+***
+
+## Control flow
+
+- 'if' statement condidtions not automatically converted to boolean
+
+```rust
+// Example of inline use with let
+fn main() {
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+
+    println!("The value of number is: {number}");
+}
+```
+- value type must be the same ^^
+
+**Loops**
+- loop, while, for
+
+One of the uses of a loop is to retry an operation you know might fail
+```rust
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+}
+```
+
+- Naming Loops
+ex:
+```rust
+fn main() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break; // breaks INNER loop only
+            }
+            if count == 2 {
+                break 'counting_up; // breaks the outter loop!
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {count}");
+}
+```
+
+**for** loop 
+- execute some code for each item in collection
+
+```rust
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a {
+        println!("the value is: {element}");
+    }
+}
+// A countdown with for loop - use RANGE
+fn main() {
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
+}
+
+```
+
+## quiz q
+**- remmber lat a = [5; 10] means 5 repeats 10 times in the array.
+**
