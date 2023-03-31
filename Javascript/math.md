@@ -102,3 +102,30 @@ function squareDigits(num){
 }
 ```
 ***
+
+### Take a Number And Sum Its Digits Raised To The Consecutive Powers 
+- 89= 8^1 + 9^2
+- 135 = 1^1 + 3^2 + 5^3
+  
+1. iterate through range of nums
+2. for each number compute sum of digits raise to consecutive powers
+   1. convert to string
+   2. split into array
+   3. reduce ( using the accumulator) to add digits raied to consec power
+
+
+```javascript
+function sumDigPow(a, b) {
+  const result = [];
+
+  for (let i = a; i <= b; i++) {
+    const sum = i.toString().split('').reduce((acc, digit, index) => acc + Math.pow(digit, index + 1), 0);
+    if (sum === i) {
+      result.push(i);
+    }
+  }
+
+  return result;
+}
+```
+*** 
