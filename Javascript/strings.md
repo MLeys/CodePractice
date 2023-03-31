@@ -65,4 +65,74 @@ function solution(nums){
 ```
 ***
 
+### Replace letters in string with pos (index) in alphabet
 
+**one way**
+1. create alphabet object with values
+2. filter text into only letter chars
+3. iterate through
+   1. push each cooresponding value to array
+4. return array
+
+```javascript
+function alphabetPosition(text) {
+  console.log(`Given: ${text}`)
+  const alphabet = getAlphabet();
+  const onlyLetters = text.split('').filter(char => /[a-zA-Z]/.test(char));
+  let charValues = [];
+  
+  for (let i = 0; i < onlyLetters.length; i++) {
+    
+    charValues.push(alphabet[onlyLetters[i].toLowerCase()])
+    console.log(charValues, " updated")
+  }
+ 
+  
+  return charValues.join(' ');
+}
+
+function getAlphabet() {
+  const alphabet = {}
+  let charCode = 'a'.charCodeAt(0);
+  for (let i = 1; i <= 26; i++) {
+    const letter = String.fromCharCode(charCode)
+    alphabet[letter] = i;
+    charCode++
+  }
+  return alphabet;
+}
+```
+**another way without creating alphabet object**
+```javascript 
+function alphabetPosition(text) {
+  let result = ""; 
+  for (let i = 0; i < text.length; i++){
+    const code = text.toUpperCase().charCodeAt(i)
+    if (code > 64 && code < 91) {
+      result += (code - 64) + " "
+    };
+  }
+
+  return result.slice(0, result.length-1);
+}
+```
+***
+
+### match two arrays of numbers 
+
+```javascript
+function comp(array1, array2){
+  if (array1 !== null && array2 !== null) {
+    let matchArray = []
+    for (let i = 0; i < array2.length; i++) {
+      const value = array2[i]
+      const squared = Math.sqrt(value)
+      matchArray.push(squared)
+    }
+    return (matchArray.sort().toString() === array1.sort().toString()) 
+            || (matchArray.length === 0 && array1.length === 0)
+  }
+  return false
+}
+
+// SHORTER

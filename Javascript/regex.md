@@ -21,4 +21,11 @@ function validatePIN(pin) {
 }
 ```
 
+## filter string to return only letter chars
+```javascript 
+const lettersOnly = str.split('').filter(char => /[a-zA-Z]/.test(char));
+```
+
+
+
 
