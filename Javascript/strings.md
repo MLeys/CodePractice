@@ -134,5 +134,58 @@ function comp(array1, array2){
   }
   return false
 }
+```
+***
 
-// SHORTER
+### check if directions next to each other match and are 'useless' return simplified dirs
+
+```javascript
+function dirReduc(arr){
+  let simpleDirections = [];
+
+  function getOppositeDir(direction) {
+    if (direction ==='NORTH') {
+      return 'SOUTH'
+    }
+      if (direction ==='SOUTH') {
+      return 'NORTH'
+    }
+      if (direction ==='EAST') {
+      return 'WEST'
+    }
+      if (direction ==='WEST') {
+      return 'EAST'
+    }
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    const dir = arr[i];
+    const oppositeDir = getOppositeDir(dir);
+    const lastDir = simpleDirections[simpleDirections.length - 1];
+
+    if (oppositeDir === lastDir) {
+      simpleDirections.pop();
+    } else {
+      simpleDirections.push(dir)
+    }
+  }
+
+  return simpleDirections
+
+}
+
+// SIMPLIFIED 
+function dirReduc(plan) {
+  var opposite = {
+    'NORTH': 'SOUTH', 'EAST': 'WEST', 'SOUTH': 'NORTH', 'WEST': 'EAST'};
+  return plan.reduce(function(dirs, dir){
+      if (dirs[dirs.length - 1] === opposite[dir])
+        dirs.pop();
+      else
+        dirs.push(dir);
+      return dirs;
+    }, []);
+}
+
+```
+***

@@ -25,7 +25,15 @@ function validatePIN(pin) {
 ```javascript 
 const lettersOnly = str.split('').filter(char => /[a-zA-Z]/.test(char));
 ```
+***
 
+### remove anything after #
+```javascript
+function removeUrlAnchor(url){
+  // TODO: complete
+  return url.replace(/#.*/gi,"");
+}
+```
 
 
 
