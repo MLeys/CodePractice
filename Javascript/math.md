@@ -128,4 +128,24 @@ function sumDigPow(a, b) {
   return result;
 }
 ```
-*** 
+***
+
+### square all numbers and return sum
+
+```javascript
+function squareSum(numbers){
+  let sum = 0;
+  for (let i=0; i<numbers.length; i++) {
+    sum += Math.pow(numbers[i],2);
+  }
+  return sum;
+}
+
+// using REDUCE
+function squareSum(numbers){
+  return numbers.reduce(function(sum, n){
+    return (n*n) + sum;
+  }, 0)
+}
+```
+***
