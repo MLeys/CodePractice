@@ -240,3 +240,45 @@ function towerBuilder(n) {
 }
 ```
 ***
+
+### Create a diamond ring looing string given a size of the ring per layer
+
+```javascript
+function diamond(n){
+  if (n <= 0 || n % 2 === 0) {
+    return null;
+  }
+  const diamond = [];
+  
+  function buildLayer(sizeRing, numStars) {
+    const spaces = ' '.repeat((sizeRing - numStars) / 2);
+    const stars = '*'.repeat(numStars)
+    diamond.push(spaces + stars + '\n')
+  }
+  // top layer
+  for (let i = 1; i <= n; i+=2){
+    buildLayer(n, i)
+  }
+  // bottom layer
+  for (let i = n - 2; i >= 1; i -= 2) {
+    buildLayer(n, i)
+  }
+  
+  return diamond.join('');
+}
+
+// CLEANER way with absolute Math
+function diamond (n) {
+  if (n <= 0 || n % 2 === 0) return null
+  str = ''
+  for (let i = 0; i < n; i++) { 
+    let len = Math.abs((n-2*i-1)/2)
+    str += ' '.repeat(len)
+    str += '*'.repeat(n-2*len)
+    str += '\n'
+  }
+  return str
+}
+
+```
+***
