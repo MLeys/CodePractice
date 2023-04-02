@@ -189,3 +189,54 @@ function dirReduc(plan) {
 
 ```
 ***
+
+### create a pyramid given a number of floors or layers
+
+```javascript
+function towerBuilder(nFloors) {
+  if (nFloors === 1) {
+    return ['*']
+  }
+  
+  let pyramid = [];
+  const star = '*';
+  const space = " ";
+  const width = nFloors + nFloors -1;
+  let stars = 1;
+  let start = 0;
+  let spaces = 0;
+
+  for (let floor = 1; floor <= nFloors; floor++) {
+    let layer = ''
+    spaces = width - stars;
+    start = Math.floor((width - stars) / 2);
+    
+    layer = space.repeat(spaces/2) + star.repeat(stars) + space.repeat(spaces/2)
+
+    pyramid.push(layer)
+    
+    stars += 2
+  }
+  return pyramid
+}
+
+// CLEANER
+function towerBuilder(nFloors) {
+  var tower = [];
+  for (var i = 0; i < nFloors; i++) {
+    tower.push(" ".repeat(nFloors - i - 1)
+             + "*".repeat((i * 2)+ 1)
+             + " ".repeat(nFloors - i - 1));
+  }
+  return tower;
+}
+
+// ALTERNATIVE
+function towerBuilder(n) {
+  return Array.from({length: n}, function(v, k) {
+    const spaces = ' '.repeat(n - k - 1);
+    return spaces + '*'.repeat(k + k + 1) + spaces;
+  });
+}
+```
+***
