@@ -282,3 +282,41 @@ function diamond (n) {
 
 ```
 ***
+
+### String incrementer, add 1 to number at end of string
+
+```javascript 
+function incrementString (string) {
+
+  const split = string.match(/^(.*?)(\d*)$/);
+  console.log(split, '<- split');
+  const letters = split[1]
+  const numbersMatch = split[2];
+  
+  if (numbersMatch === '') {
+    return letters + "1";
+  }
+
+  let numbers = String(Number(numbersMatch) + 1);
+
+  (numbersMatch.length !== numbers.length) ? numbers = numbers.padStart(numbersMatch.length, "0"): '';
+
+  return letters + numbers  
+}
+
+
+//ALTERNATIVES
+function incrementString(input) {
+  if(isNaN(parseInt(input[input.length - 1]))) return input + '1';
+  return input.replace(/(0*)([0-9]+$)/, function(match, p1, p2) {
+    var up = parseInt(p2) + 1;
+    return up.toString().length > p2.length ? p1.slice(0, -1) + up : p1 + up;
+  });
+}
+
+// or
+
+let incrementString = str => str.replace(/([0-8]|\d?9+)?$/, (e) => e ? + e + 1 : 1)
+
+```
+***
