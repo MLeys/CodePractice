@@ -331,3 +331,36 @@ function sortByLength (array) {
 
 ***
 
+### strip comments from a line
+
+```javascript
+function solution(input, markers) {
+  const lines = input.split('\n').map((line) => {
+    console.log(`checking -->\n${line}`)
+    for (let i = 0; i < markers.length; i++) {
+      console.log(`checking for marker: ${markers[i]}`)
+      const markerIdx = line.indexOf(markers[i]) 
+      console.log(`markerIdx: ${markerIdx}`)
+      
+      if (markerIdx > -1) {
+        return line.slice(0, markerIdx).trimEnd();
+      } 
+    }
+      return line
+  }).join('\n')  
+
+  return lines
+};
+
+// CLEANER WAY with reduce
+function solution(input, markers) {
+  return input.split('\n').map(
+    line => markers.reduce(
+      (line, marker) => line.split(marker)[0].trim(), line
+    )
+  ).join('\n')
+}
+```
+
+***
+
