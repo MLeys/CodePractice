@@ -38,7 +38,7 @@ function removeUrlAnchor(url){
 ### in a string with numbers at end, increment last number by 1 and return 
 
 - regex
-  -     (.*?): matches any sequence of characters (including an empty sequence) that precedes the last number in the string
+  - \(.*?): matches any sequence of characters (including an empty sequence) that precedes the last number in the string
   - (\d*): matches zero or more digits at the end of the string
 
 
@@ -76,5 +76,13 @@ function incrementString(input) {
 let incrementString = str => str.replace(/([0-8]|\d?9+)?$/, (e) => e ? + e + 1 : 1)
 
 ```
+***
+
+### remove last element of specificed char from string
+
+```javascript
+const remove = s => s.replace(/!$/, '');
+```
+
 ***
 

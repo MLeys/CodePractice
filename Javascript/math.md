@@ -149,3 +149,24 @@ function squareSum(numbers){
 }
 ```
 ***
+
+### number of cubes to build a buildign given a volume
+
+```javascript
+function findNb(m) {
+  let volume = 0;
+  let cubes = 1
+  
+  while (volume < m) {
+    volume += Math.pow(cubes, 3);
+    if (volume === m) {
+      return cubes;
+    };
+    cubes++
+  }
+  
+  return (-1);
+}
+```
+
+**
