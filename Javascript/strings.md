@@ -361,6 +361,27 @@ function solution(input, markers) {
   ).join('\n')
 }
 ```
+***
 
+### Count qty of element in array and return element that shows up an odd num of times
+
+```javascript
+function findOdd(A) {
+  const nums = {}
+  for (let i = 0; i < A.length; i++) {
+    const num = A[i];
+    nums[num] = nums[num] ? nums[num] + 1 : 1;
+  }
+  for (const num in nums) {
+    if (nums[num] % 2 === 1) {
+      return Number(num);
+    }
+  }
+}
+
+// CLEANER use REDUCE
+const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+```
 ***
 

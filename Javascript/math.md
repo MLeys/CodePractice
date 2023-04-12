@@ -169,4 +169,125 @@ function findNb(m) {
 }
 ```
 
-**
+***
+
+### find min and max in array
+
+```javascript
+function findMinMax(arr) {
+  let min = arr[0];
+  let max = arr[0];
+  
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  
+  return { min, max };
+}
+
+// CLEANER faster using math
+function minMax(arr){
+  return [Math.min(...arr), Math.max(...arr)];
+}
+
+```
+***
+
+## Binomial Expansion (ax+b)^n
+***
+**IN PROGRESS** 
+***
+
+1. find values for each variable 
+2. 
+
+
+```javascript
+function pascalsTri(numRows) {
+    if (numRows === 0) return [];
+    if (numRows === 1) return [[1]];
+    let result = [];
+    for (let row = 1; row <= numRows; row++) {
+        let arr = [];
+        for (let col = 0; col < row; col++) {
+            if (col === 0 || col === row - 1) {
+                arr.push(1);
+            } else {
+                arr.push((result[row-2][col-1] + result[row-2][col]));
+            }
+        }
+        result.push(arr);
+    }
+    return result;
+}
+
+function expand(exp) {
+  console.log(exp)
+  const e = []
+  let xIndex = 1;
+  for (let i = 0; i < exp.length; i++) {
+    if (/^[a-zA-Z]$/.test(exp[i])) {
+      xIndex = i;
+      break;
+    }
+  }
+  const x = exp[xIndex];
+  const a = Number(xIndex === 1 ? 1 : (exp[1] === '-') ? -1 : exp.slice(1, xIndex))
+  const b = Number(exp.slice(xIndex +1, exp.indexOf(')')))
+  const pow = Number(exp.slice(exp.indexOf('^')+1))
+  
+  const pascalsTriangle = pascalsTri(pow+1);
+  console.log(pascalsTriangle[pascalsTriangle.length - 1], ' pascals')
+  const pascals = pascalsTriangle[pascalsTriangle.length - 1]
+  
+  console.log(`x = ${x}`)
+  console.log(`a = ${a}`)
+  console.log(`b = ${b}`)
+  console.log(`pow = ${pow}`)
+  console.log(`===================\n`)
+  let aPow = pow;
+  let bPow = 0;
+
+console.log(exp.slice(1, exp.indexOf('^')-1))
+  if (pow === 0) return '1';
+  if (pow === 1) return exp.slice(1, exp.indexOf('^')-1)
+  
+  console.log(pascals.length, ' LENGHT')
+  for (let k = 0; k < pascals.length; k++) {
+    
+    const coef = pascals[k]
+    let a2 = coef*Math.pow(a, aPow)
+    console.log(a2, '= a')
+    let b2 = coef*Math.pow(b, bPow)
+    console.log(b2, '= b');
+//     console.log(`\n===================\n`)
+    if (aPow === pow) {
+      if (a2 === 1) {
+        e.push(`${x}^${aPow}`)
+      }
+    } else if (aPow === 0) {
+      console.log('last iter')
+      e.push(`${b2}`)
+    } else if (aPow === 1) {
+      e.push(`${a2+b2}${x}`)
+    } else {
+      e.push(`${a2*b2}${x}^${aPow}`)
+    }
+    
+    
+    console.log(`${a2*b2}^${aPow} ====== Line: ${k}`);
+    aPow--
+    bPow++
+  }
+  console.log(2)
+  return e.join('+')
+}
+
+
+```
+***
