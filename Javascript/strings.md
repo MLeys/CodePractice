@@ -385,3 +385,59 @@ const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
 ```
 ***
 
+### Rot13 char codes. Return letter as 13 charCodes more than orig charcode
+
+```javascript
+function rot13(message) {
+  let rot13 = 13;
+  let result = ""; 
+  for (let i = 0; i < message.length; i++) {
+    let code = message.charCodeAt(i);
+    let char = message[i];
+    
+    if (isAlphaChar(code)) {
+      char = String.fromCharCode(alphaCodeToRot13(code));
+    }
+    result += char;
+  }
+  return result;
+}
+
+function alphaCodeToRot13(alphaCode) {
+  let rot13 = 13;
+  let newCode = alphaCode + rot13;
+  if ((newCode > 90 && alphaCode < 91) || newCode > 122) {
+    newCode -= 26;
+  }
+  return newCode;
+}
+
+function isAlphaChar(code) {
+  return (code > 64 && code < 91) || (code > 96 && code < 123);
+}
+
+```
+***
+
+### return string with no duplicates next to each oter in Unique in order
+
+```javascript
+var uniqueInOrder=function(iterable){
+  // check if is array, if not, split string
+  if (!Array.isArray(iterable)) {
+    iterable = iterable.split('');
+  }
+
+  const orderedUnique = [];
+  //if current ele diff, add to new array
+  for (let i = 0; i < iterable.length; i++) {
+    if (iterable[i] !== iterable[i-1]) {
+      orderedUnique.push(iterable[i]);
+    }
+  }
+
+  return orderedUnique;
+}
+
+```
+***
