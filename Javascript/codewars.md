@@ -323,3 +323,22 @@ function gooseFilter (birds) {
 ```
 ***
 
+
+***
+Partition Detection
+- take a list of points that make lines and return true if they create at least 2 parts in a square.
+
+  - grab each wall
+  - check length 
+    - Math.abs(x2 - x1)
+  - check length against h / w
+    - if as long or longer as h / w 
+      - x or y ( to match h / w above) 
+        - cross or touch MIN (0) and MAX (h/w) axis
+      -IF TRUE: ( crosses both bounds of h or w) 
+         -CHANGE passW/H = true and exit because it has a full wall.
+         
+    -check if any LINES exist due to shared walls 
+      if match found ( store the number in array 
+          --let lines = []
+              lines.push([ x or y, number(constant)])
