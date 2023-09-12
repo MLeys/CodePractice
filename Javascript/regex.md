@@ -86,3 +86,15 @@ const remove = s => s.replace(/!$/, '');
 
 ***
 
+***
+### Filter String
+Constraints
+1. All lowercase
+2. >= 3 char in length
+3. first and last are a vowel and are the same
+```javascript
+    const re = /^([aeiou])[a-z]{1,}\1$/;
+```
+***
+
+
