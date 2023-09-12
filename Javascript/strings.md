@@ -441,3 +441,19 @@ var uniqueInOrder=function(iterable){
 
 ```
 ***
+***
+### return string in reverse order if given as string not a number
+
+```javascript
+function reverseString(s) {
+    try {
+        s = s.split("").reverse().join("");
+    } catch (e){
+        console.log(e.message)
+    } finally {
+        console.log(s)
+    }
+}
+
+```
+***
