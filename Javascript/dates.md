@@ -12,7 +12,14 @@ function findFriday13s(year) {
   }
   return count;
 }
-
-// Example usage:
-const numberOfFriday13s = findFriday13s(2023);
+// BETTER WAY not to waste memory by creating new Date object every iteration
+  let date = new Date(year,0,13);
+  let count = 0;
+  for(let i=0; i<12; i++) {
+    date.setMonth(i);
+    if(date.getDay()===5) {
+      count++;
+    };
+  };
+  return count;
 ```
