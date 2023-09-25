@@ -96,5 +96,24 @@ Constraints
     const re = /^([aeiou])[a-z]{1,}\1$/;
 ```
 ***
+### remove last element of specificed char from string
 
+```javascript
+const remove = s => s.replace(/!$/, '');
+```
+
+***
+
+***
+### Check to meet password conditions
+1. min six chars
+2. one lowercase
+3. one uppercase
+4. one digit
+5. only alphanumberic chars
+
+```javascript
+    const checkPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{6,}$/;
+```
+***
 
