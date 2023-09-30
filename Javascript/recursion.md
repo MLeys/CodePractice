@@ -44,4 +44,59 @@ def helper(array, subset, i):
     subset[i] = array[i]
     helper(array, subset, i + 1)
 ```
+***
+## find max num in array using recursion
+###Step 1: Define the Base Case
 
+The first thing we need to consider is the base case for our recursion. In other words, what condition will end the recursion? Here, it's an empty array. If the array is empty, we return -Infinity, mimicking the behavior of Math.max for an empty array.
+```
+javascript
+
+if (array.length === 0) return -Infinity;
+```
+###Step 2: Destructure the Array
+
+We then move on to the recursion part. The idea is to break down the array into smaller and smaller pieces until we hit the base case (the empty array). To do that, we use array destructuring to split the array into its "head" and "tail":
+
+javascript
+```
+const [head, ...tail] = array;
+```
+    head contains the first element of the array.
+    tail contains the rest of the elements (everything except the first).
+
+###Step 3: Recursive Call
+
+Next, we make a recursive call to find the maximum number in the "tail" of the array:
+
+javascript
+```
+const nextMax = max(tail);
+```
+This is important because it brings us closer to our base case, and each recursive call works on a progressively smaller array.
+###Step 4: Determine the Max
+
+The maximum value between the "head" and the maximum value of the "tail" (nextMax) needs to be determined. We do that by using the ternary operator:
+
+javascript
+```
+return head > nextMax ? head : nextMax;
+```
+If the head is greater than nextMax, head becomes the new maximum. Otherwise, nextMax remains the maximum value.
+###Final Code:
+
+Here's how all the pieces fit together:
+
+javascript
+```
+function max(array) {
+  if (array.length === 0) return -Infinity; // Base Case
+  
+  const [head, ...tail] = array;  // Destructuring
+  
+  const nextMax = max(tail);  // Recursive Call
+  
+  return head > nextMax ? head : nextMax;  // Determine the Max
+}
+```
+***
