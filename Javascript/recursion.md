@@ -25,7 +25,7 @@ function sumArrayOfNums(arr){
     // Once you’ve defined the helper function, make sure you call it!
     return rSum();
   }
-  ```
+```
 
 
 ### find all subsets of given array
@@ -49,9 +49,10 @@ def helper(array, subset, i):
 ###Step 1: Define the Base Case
 
 The first thing we need to consider is the base case for our recursion. In other words, what condition will end the recursion? Here, it's an empty array. If the array is empty, we return -Infinity, mimicking the behavior of Math.max for an empty array.
-```javascript
 
+```javascript
 if (array.length === 0) return -Infinity;
+
 ```
 ###Step 2: Destructure the Array
 
