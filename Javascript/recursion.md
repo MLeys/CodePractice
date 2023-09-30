@@ -31,7 +31,7 @@ function sumArrayOfNums(arr){
 ### find all subsets of given array
 
 - #subsets = 2^n, n = number of elements
-```
+```javascript
 def all_subsets(array):
   subset = new int[array.length]
   helper(array, subset, 0)
@@ -49,8 +49,7 @@ def helper(array, subset, i):
 ###Step 1: Define the Base Case
 
 The first thing we need to consider is the base case for our recursion. In other words, what condition will end the recursion? Here, it's an empty array. If the array is empty, we return -Infinity, mimicking the behavior of Math.max for an empty array.
-```
-javascript
+```javascript
 
 if (array.length === 0) return -Infinity;
 ```
@@ -58,8 +57,8 @@ if (array.length === 0) return -Infinity;
 
 We then move on to the recursion part. The idea is to break down the array into smaller and smaller pieces until we hit the base case (the empty array). To do that, we use array destructuring to split the array into its "head" and "tail":
 
-javascript
-```
+```javascript
+
 const [head, ...tail] = array;
 ```
     head contains the first element of the array.
@@ -69,8 +68,8 @@ const [head, ...tail] = array;
 
 Next, we make a recursive call to find the maximum number in the "tail" of the array:
 
-javascript
-```
+
+```javascript
 const nextMax = max(tail);
 ```
 This is important because it brings us closer to our base case, and each recursive call works on a progressively smaller array.
@@ -78,8 +77,8 @@ This is important because it brings us closer to our base case, and each recursi
 
 The maximum value between the "head" and the maximum value of the "tail" (nextMax) needs to be determined. We do that by using the ternary operator:
 
-javascript
-```
+
+```javascript
 return head > nextMax ? head : nextMax;
 ```
 If the head is greater than nextMax, head becomes the new maximum. Otherwise, nextMax remains the maximum value.
@@ -87,8 +86,8 @@ If the head is greater than nextMax, head becomes the new maximum. Otherwise, ne
 
 Here's how all the pieces fit together:
 
-javascript
-```
+
+```javascript
 function max(array) {
   if (array.length === 0) return -Infinity; // Base Case
   
